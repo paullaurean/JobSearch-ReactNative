@@ -11,11 +11,33 @@ const Home = () => {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite, }}>
       <Stack.Screen
-      options={{
-        headerStyle: { backgroundColor: COLORS.lightWhite}
-      }}/>
+          options={{
+            headerTitle: "GEOMAP",
+            headerTitleAlign: 'center',
+            headerStyle: { backgroundColor: COLORS.lightWhite},
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <ScreenHeaderBtn iconUrl={icons.menu} dimension= '60%'/>
+            ),
+            headerRight: () => (
+              <ScreenHeaderBtn iconUrl={icons.profile} dimension= '60%'/>
+            ),
+          }}
+      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+          <View
+            style={{
+              flex: 1,
+              padding: SIZES.medium,
+            }}
+          > 
+            <Welcome/>
+            <Popularjobs/>
+            <Nearbyjobs/>
+          </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
